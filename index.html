@@ -27,10 +27,10 @@
         class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>
             <h4>Kepada Bapak/Ibu/Saudara/i, </h4>
-            <h1>Kaka & Wanda</h1>
+            <h1>Lorem & Ipsum</h1>
             <p>Akan melangsungkan resepsi pernikahan dalam:</p>
             <div class="simply-countdown"></div>
-            <a href="#home" class="btn btn-lg mt-4" onclick="enablescroll()">Lihat Undangan</a>
+            <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Lihat Undangan</a>
         </main>
     </section>
 
@@ -70,29 +70,29 @@
             </div>
             <div class="row couple">
                 <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-8 text-end">
-                            <h3>Muhamad Kaka Hardiansyah</h3>
-                            <p>Muhamad Kaka Hardiansyah adalah anak pertama dari 2 bersaudara, dari bapak slamet hariyadi dan ibu dwi hayati.</p>
-                            <p>Putra dari Bpk. Slamet Hariyadi <br> dan <br> Ibu Dwi Hayati</p>
+                          <div class="row">
+                                <div class="col-8 text-end">
+                                    <h3>Lorem Ipsum</h3>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro quae id asperiores quasi eligendi dolorum.</p>
+                                    <p>Putra dari Bpk. lorem <br> dan <br> Ibu ipsum</p>
+                                </div>
+                                <div class="col-4">
+                                    <img src="https://placeholder.com/200x200" alt="Kaka Hardiansyah" class="w-100 h-100 img-responsive rounded-circle">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <img src="Kaka.jpeg" alt="Kaka Hardiansyah" class="w-100 h-100 img-responsive rounded-circle">
-                        </div>
-                    </div>
-                </div>
 
                 <span class="heart"><i class="bi bi-heart-fill"></i></span>
 
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-4">
-                            <img src="Wanda.jpeg" alt="Juwita Wanda" class="w-100 h-100 img-responsive rounded-circle">
+                            <img src="https://placeholder.com/200x200" alt="Juwita Wanda" class="w-100 h-100 img-responsive rounded-circle">
                         </div>
                         <div class="col-8">
-                            <h3>Ita Juwita Wanda</h3>
-                            <p>Ita Juwita wanda adalah anak ketiga dari 3 bersaudara, anak dari pasangan bapak iwan efendi dan ibu lilik.</p>
-                            <p>Putra dari Bpk. Iwan Efendi <br> dan <br> Ibu Lilik</p>
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quisquam eius, odit ipsam cupiditate vel.</p>
+                            <p>Putri dari Bpk. lorem <br> dan <br> Ibu ipsum</p>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                       </div>
                 </div>
             </div>
-         <div class="col-md-5 col-10">
+          <div class="col-md-5 col-10">
                 <div class="card text-center text-bg-light">
                     <div class="card-header">
                       Resepsi
@@ -287,7 +287,6 @@
             </div>
           </form>
         </div>
-
       </section>
 
       <section id="gifts" class="gifts">
@@ -343,7 +342,7 @@
 
       <div id="audio-container">
         <audio id="song" autoplay loop>
-          <source src="Audio/Akad - Payung Teduh ( Piano Cover )_e6IJuCtAAO8.mp3" type="audio/mp3">
+          <source src="Audio/Akad - Payung Teduh ( Piano Cover )_e6IJuCtAAO8 (mp3cut.net).mp3" type="audio/mp3">
         </audio>
 
         <div class="audio-icon-wrapper" style="display: none;">
@@ -394,25 +393,57 @@
   <!-- Disabled scroll -->
   <script>
     const rootElement = document.querySelector(":root");
+    const audioIconWrapper = document.querySelector('.audio-icon-wrapper')
+    const audioIcon = document.querySelector('.audio-icon-wrapper i')
+    const song = document.querySelector('#song')
+    let isPlaying = false
 
     function dissableScroll(){
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
       window.onscroll = function (){
-        window.scrollTop(scrollTop, scrollLeft);
+        window.scrollTo(scrollTop, scrollLeft);
       }
 
       rootElement.style.scrollBehavior = 'auto';
     }
 
-    function enablescroll(){
-      window.onScroll = function () {}
-      rootElement.style.scrollBehavior = 'smooth';
+    function enableScroll(){
+      window.onscroll = function () {
+        rootElement.style.scrollBehavior = 'smooth';
+        // localStorage.setItem('opened', 'true');
+        playAudio()
+      }
     }
 
+    function playAudio() {
+      song.volume = 0.5
+      audioIconWrapper.style.display = 'flex'
+      song.play()
+      isPlaying = true
+    }
+
+    audioIconWrapper.onclick = function() {
+      if (isPlaying) {
+        song.pause()
+        audioIcon.classList.remove('bi-disc')
+        audioIcon.classList.add('bi-pause-circle')
+      } else {
+        song.play()
+        audioIcon.classList.add('bi-disc')
+        audioIcon.classList.remove('bi-pause-circle')
+      }
+
+      isPlaying = !isPlaying
+    }
+
+    // if (!localStorage.getItem('opened')) {
+    // dissableScroll();
+    // }
+
     dissableScroll();
-  </script>
+    </script>
 
   <script>
       window.addEventListener("load", function() {

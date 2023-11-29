@@ -1,7 +1,7 @@
 :root {
     --pink: #f14e95;
     --bg: #0a0a0a;
-    --shadow: 0 2px 2px rgb(0 0 0 / 0.5)
+    --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
 }
 
 body {
@@ -16,7 +16,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url(IMG_6066.jpeg);
+    background-image: url(https://placeholder.com/200x200);
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -373,10 +373,8 @@ footer li {
     right: 2rem;
     cursor: pointer;
     color: white;
-    opacity: 0.5;
     mix-blend-mode: difference;
     animation: rotating 4s linear infinite;
-    -webkit-animation: rotating 4s linear infinite;
     transform-origin: center;
     display: flex;
     justify-content: center;
